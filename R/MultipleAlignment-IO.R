@@ -169,23 +169,17 @@ function(filepath, format)
 ###
 
 ## helper to chop up strings into pieces.
-.strChop <- function(x, chopsize=10, simplify = TRUE)
+.strChop <- function(x, chopsize=10)
 {
     chunks <- breakInChunks(nchar(x), chunksize=chopsize)
-    if(simplify==TRUE){
-        sapply(seq_len(length(chunks)),
-               function(i)
-               substr(x, start=start(chunks)[i], stop=end(chunks)[i]))
-    } else {
-        lapply(seq_len(length(chunks)),
-               function(i)
-               substr(x, start=start(chunks)[i], stop=end(chunks)[i]))
-    }
+    vapply(seq_along(chunks),
+           function(i) substr(x, start=start(chunks)[i], stop=end(chunks)[i]),
+           character(1))
 }
 
 ## We just have to just insert line spaces
 .insertSpaces <- function(str){
-  str = .strChop(str)
+  str <- .strChop(str)
   paste(str, collapse=" ")
 }
 
@@ -219,8 +213,7 @@ write.MultAlign <- function(x, filepath, invertColMask, showRowNames,
         mskCh <- .insertSpaces(mskCh)
     }
     ## Split up the output into lines, but grouped into a list object
-    names <- names(ch)
-    ch <- sapply(ch, .strChop, chopsize=55, simplify=FALSE)
+    ch <- setNames(lapply(ch, .strChop, chopsize=55), ch)
     ## Again consider mask, split, name & cat on (if needed)
     if(hasMask){
         mskCh <- .strChop(mskCh, chopsize=55)
@@ -259,13 +252,15 @@ write.MultAlign <- function(x, filepath, invertColMask, showRowNames,
     ## drop trailing spaces
     output <-  gsub("\\s+$","", output)
     ## remove the extra end line
-    output <- output[1:length(output)-1]
+    output <- head(output, n=-1L)
     ## finally attach the dims
-    if(hasMask){
+    if (hasMask) {
         ##Honestly not sure if I need a "W" here or what it means?
-        output <- c(paste("",paste(c(dims,""),collapse=" "),collapse=" "),output)
+        output <- c(paste("", paste(c(dims, ""), collapse=" "), collapse=" "),
+                    output)
     } else {
-        output <- c(paste("",paste(dims,collapse=" "),collapse=" "),output)
+        output <- c(paste("", paste(dims, collapse=" "), collapse=" "),
+                    output)
     }
     writeLines(output, filepath)
 }

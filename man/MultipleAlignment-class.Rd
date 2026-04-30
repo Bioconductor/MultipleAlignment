@@ -109,6 +109,11 @@ AAMultipleAlignment(x=character(), start=NA, end=NA, width=NA,
   masked for ad hoc analyses.
 }
 
+\value{
+  Each constructor function returns a MultipleAlignment derivative of the
+  same class as the name of the function.
+}
+
 \section{Accessor methods}{
   In the code snippets below, \code{x} is a MultipleAlignment object.
 
@@ -225,9 +230,32 @@ AAMultipleAlignment(x=character(), start=NA, end=NA, width=NA,
 }
 
 \section{Display}{
-  The letters in a DNAMultipleAlignment or RNAMultipleAlignment object
-  are colored when displayed by the \code{show()} method. Set global
-  option \code{Biostrings.coloring} to FALSE to turn off this coloring.
+  \subsection{The \code{show()} method}{
+    The letters in a MultipleAlignment object are colored when displayed
+    by the \code{show()} method. Set global option \code{Biostrings.coloring}
+    to FALSE to turn off this coloring.
+  }
+  \subsection{The \code{detail()} method}{
+    In addition to a \code{show()} method, a \code{detail()} method is
+    provided (\code{detail()} is a new generic function defined in this
+    package, see \code{?\link{detail}}).
+
+    \code{detail(x, invertColMask, hideMaskedCols)}: Allows for a full
+    pager driven display of the object so that masked cols and rows
+    can be removed and the entire sequence can be visually
+    inspected. If \code{hideMaskedCols} is set to its default value
+    of \code{TRUE} then the output will hide all the masked
+    colmns in the output.  Otherwise, all columns will be displayed
+    along with a row to indicate the masking status.  If
+    \code{invertColMask} is \code{TRUE} then any displayed mask will
+    be flipped so as to represent things in a way consistent with
+    Phylip style files instead of the mask that is actually stored in
+    the MultipleAlignment object.  Please notice that
+    \code{invertColMask} will be ignored if \code{hideMaskedCols} is
+    set to its default value of \code{TRUE} since in that case it will
+    not make sense to show any masking information in the output.
+    Masked rows are always hidden in the output.
+  }
 }
 
 \author{P. Aboyoun and M. Carlson}
@@ -289,8 +317,8 @@ colmask(autoMasked)
 autoMasked
 
 ## cluster the masked alignments
-library(pwalign)
-sdist <- pwalign::stringDist(as(autoMasked,"DNAStringSet"), method="hamming")
+library(pwalign)  # for stringDist()
+sdist <- stringDist(as(autoMasked,"DNAStringSet"), method="hamming")
 clust <- hclust(sdist, method = "single")
 plot(clust)
 fourgroups <- cutree(clust, 4)

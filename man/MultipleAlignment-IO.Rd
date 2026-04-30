@@ -44,6 +44,11 @@ write.phylip(x, filepath)
   }
 }
 
+\value{
+  Each read function returns a MultipleAlignment derivative of the class
+  that matches the name of the function.
+}
+
 \author{P. Aboyoun and M. Carlson}
 
 \seealso{

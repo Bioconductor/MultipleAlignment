@@ -3,10 +3,10 @@ Title: Representation of multiple sequence alignments in Bioconductor
 Description: The package implements a set of S4 classes (DNAMultipleAlignment,
 	RNAMultipleAlignment, AAMultipleAlignment) for representing multiple
 	sequence alignments.
-biocViews: Alignment, Genetics, DataImport, DataRepresentation, Infrastructure
+biocViews: Alignment, MultipleSequenceAlignment, Genetics, DataImport, DataRepresentation, Infrastructure
 URL: https://bioconductor.org/packages/MultipleAlignment
 BugReports: https://github.com/Bioconductor/MultipleAlignment/issues
-Version: 0.0.2
+Version: 0.99.0
 License: Artistic-2.0
 Encoding: UTF-8
 Authors@R: c(
@@ -20,7 +20,7 @@ Authors@R: c(
 	person("Michael", "Lawrence", role="ctb"),
 	person("Martin", "Morgan", role="ctb"))
 Depends: BiocGenerics, S4Vectors, IRanges, Seqinfo, Biostrings
-Imports: methods
+Imports: methods, stats
 Suggests: pwalign, testthat, knitr, rmarkdown, BiocStyle
 VignetteBuilder: knitr
 Collate: MultipleAlignment-class.R

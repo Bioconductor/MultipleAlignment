@@ -52,17 +52,16 @@ setMethod("consensusString","DNAMultipleAlignment",
     }
 )
 
+RNA_IUPAC_CODE_MAP <- setNames(
+    as.character(RNAStringSet(DNAStringSet(IUPAC_CODE_MAP))),
+    as.character(RNAStringSet(DNAStringSet(names(IUPAC_CODE_MAP))))
+)
+
 setMethod("consensusString","RNAMultipleAlignment",
-    function(x,
-            ambiguityMap=
-            structure(as.character(RNAStringSet(DNAStringSet(IUPAC_CODE_MAP))),
-                      names=
-                      as.character(RNAStringSet(DNAStringSet(names(IUPAC_CODE_MAP))))),
-            threshold=0.25)
+    function(x, ambiguityMap=RNA_IUPAC_CODE_MAP, threshold=0.25)
     {
         callNextMethod(x, ambiguityMap=ambiguityMap, threshold=threshold,
-                       codes=
-                       as.character(RNAStringSet(DNAStringSet(names(IUPAC_CODE_MAP)))))
+                       codes=names(RNA_IUPAC_CODE_MAP))
     }
 )
 
@@ -100,9 +99,7 @@ setMethod("consensusViews","DNAMultipleAlignment",
 )
 
 setMethod("consensusViews","RNAMultipleAlignment",
-    function(x,
-             ambiguityMap=as.character(RNAStringSet(DNAStringSet(IUPAC_CODE_MAP))),
-             threshold=0.25)
+    function(x, ambiguityMap=RNA_IUPAC_CODE_MAP, threshold=0.25)
     {
         callNextMethod(x, ambiguityMap=ambiguityMap, threshold=threshold)
     }
