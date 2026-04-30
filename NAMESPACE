@@ -1,0 +1,87 @@
+import(methods)
+
+import(BiocGenerics)
+import(S4Vectors)
+import(IRanges)
+import(Seqinfo)
+import(Biostrings)
+
+
+### - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+### Export S4 classes
+###
+
+exportClasses(
+    MultipleAlignment,
+    DNAMultipleAlignment, RNAMultipleAlignment, AAMultipleAlignment
+)
+
+
+### - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+### Export S4 methods for generics NOT defined in this package
+###
+
+exportMethods(
+    ## Methods for generics defined in the base package:
+    dim, nrow, ncol,
+    rownames,
+    nchar,
+    as.character, as.matrix,
+
+    ## Methods for generics defined in the methods package:
+    coerce, show,
+
+    ## Generics defined in the IRanges package:
+    maskedratio,
+
+    ## Generics defined in the Biostrings package:
+    seqtype, alphabetFrequency,
+    consensusMatrix, consensusString,
+    maskMotif, unmasked
+)
+
+
+### - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+### Export non-generic functions
+###
+
+export(
+    ## MultipleAlignment-class.R:
+    DNAMultipleAlignment,
+    RNAMultipleAlignment,
+    AAMultipleAlignment,
+
+    ## MultipleAlignment-IO.R:
+    readDNAMultipleAlignment,
+    readRNAMultipleAlignment,
+    readAAMultipleAlignment,
+    write.phylip
+)
+
+
+### - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+### Export S4 generics defined in this package, and corresponding methods
+###
+
+export(
+    ## MultipleAlignment-class.R:
+    rowmask, "rowmask<-",
+    colmask, "colmask<-",
+    maskGaps,
+    maskednrow, maskedncol, maskeddim,
+    detail,
+
+    ## MultipleAlignment-utils.R:
+    consensusViews
+)
+
+### Same list as above.
+exportMethods(
+    rowmask, "rowmask<-",
+    colmask, "colmask<-",
+    maskGaps,
+    maskednrow, maskedncol, maskeddim,
+    detail,
+    consensusViews
+)
+
