@@ -19,7 +19,7 @@ Authors@R: c(
 	       comment="Converted 'MultipleAlignments' vignette from Sweave to RMarkdown"),
 	person("Michael", "Lawrence", role="ctb"),
 	person("Martin", "Morgan", role="ctb"))
-Depends: BiocGenerics, S4Vectors, IRanges, Seqinfo, Biostrings, BiocVersion (>= 3.24.0)
+Depends: BiocGenerics, S4Vectors, IRanges, Seqinfo, Biostrings
 Imports: methods, stats
 Suggests: pwalign, testthat, knitr, rmarkdown, BiocStyle
 VignetteBuilder: knitr
