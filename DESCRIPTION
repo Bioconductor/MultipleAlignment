@@ -6,7 +6,7 @@ Description: The package implements a set of S4 classes (DNAMultipleAlignment,
 biocViews: Alignment, MultipleSequenceAlignment, Genetics, DataImport, DataRepresentation, Infrastructure
 URL: https://bioconductor.org/packages/MultipleAlignment
 BugReports: https://github.com/Bioconductor/MultipleAlignment/issues
-Version: 0.99.0
+Version: 0.99.1
 License: Artistic-2.0
 Encoding: UTF-8
 Authors@R: c(
@@ -19,7 +19,7 @@ Authors@R: c(
 	       comment="Converted 'MultipleAlignments' vignette from Sweave to RMarkdown"),
 	person("Michael", "Lawrence", role="ctb"),
 	person("Martin", "Morgan", role="ctb"))
-Depends: BiocGenerics, S4Vectors, IRanges, Seqinfo, Biostrings
+Depends: BiocGenerics, S4Vectors, IRanges, Seqinfo, Biostrings, BiocVersion (>= 3.24.0)
 Imports: methods, stats
 Suggests: pwalign, testthat, knitr, rmarkdown, BiocStyle
 VignetteBuilder: knitr
