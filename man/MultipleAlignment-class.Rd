@@ -82,9 +82,9 @@ AAMultipleAlignment(x=character(), start=NA, end=NA, width=NA,
 
 \arguments{
   \item{x}{
-    Either a character vector (with no NAs), or an \link{XString},
-    \link{XStringSet} or \link{XStringViews} object containing
-    strings with the same number of characters.
+    Either a character vector (with no NAs), or an \link[Biostrings]{XString},
+    \link[Biostrings]{XStringSet} or \link[Biostrings]{XStringViews} object
+    containing strings with the same number of characters.
   }
   \item{start,end,width}{
     Either \code{NA}, a single integer, or an integer vector of the same
@@ -119,8 +119,8 @@ AAMultipleAlignment(x=character(), start=NA, end=NA, width=NA,
 
   \describe{
     \item{\code{unmasked(x)}:}{
-      The underlying \link{XStringSet} object containing the multiple
-      sequence alignment.
+      The underlying \link[Biostrings]{XStringSet} object containing the
+      multiple sequence alignment.
     }
     \item{\code{rownames(x)}:}{
       \code{NULL} or a character vector of the same length as \code{x}
@@ -128,23 +128,23 @@ AAMultipleAlignment(x=character(), start=NA, end=NA, width=NA,
       sequence in \code{x}.
     }
     \item{\code{rowmask(x)}, \code{rowmask(x, append, invert) <- value}:}{
-      Gets and sets the \link{NormalIRanges} object representing the
-      masked rows in \code{x}. The \code{append} argument takes
+      Gets and sets the \link[IRanges]{NormalIRanges} object representing
+      the masked rows in \code{x}. The \code{append} argument takes
       \code{union}, \code{replace} or \code{intersect} to indicate how
       to combine the new \code{value} with \code{rowmask(x)}. The
       \code{invert} argument takes a logical argument to indicate
       whether or not to invert the new mask. The \code{value} argument
-      can be of any class that is coercible to a \link{NormalIRanges}
+      can be of any class that is coercible to a \link[IRanges]{NormalIRanges}
       via the \code{as} function.
     }
     \item{\code{colmask(x)}, \code{colmask(x, append, invert) <- value}:}{
-      Gets and sets the \link{NormalIRanges} object representing the
+      Gets and sets the \link[IRanges]{NormalIRanges} object representing the
       masked columns in \code{x}. The \code{append} argument takes
       \code{union}, \code{replace} or \code{intersect} to indicate how
       to combine the new \code{value} with \code{colmask(x)}. The
       \code{invert} argument takes a logical argument to indicate
       whether or not to invert the new mask. The \code{value} argument
-      can be of any class that is coercible to a \link{NormalIRanges}
+      can be of any class that is coercible to a \link[IRanges]{NormalIRanges}
       via the \code{as} function.
     }
     \item{\code{maskMotif(x, motif, min.block.width=1, ...)}:}{
@@ -209,9 +209,9 @@ AAMultipleAlignment(x=character(), start=NA, end=NA, width=NA,
   \describe{
     \item{\code{as(from, "DNAStringSet")}, \code{as(from, "RNAStringSet")},
       \code{as(from, "AAStringSet")}, \code{as(from, "BStringSet")}:}{
-      Creates an instance of the specified \link{XStringSet} object subtype
-      that contains the unmasked regions of the multiple sequence alignment
-      in \code{x}.
+      Creates an instance of the specified \link[Biostrings]{XStringSet}
+      object subtype that contains the unmasked regions of the multiple
+      sequence alignment in \code{x}.
     }
     \item{\code{as.character(x, use.names)}:}{
       Convert \code{x} to a character vector containing the unmasked

@@ -1,12 +1,15 @@
 Package: MultipleAlignment
 Title: Representation of multiple sequence alignments in Bioconductor
 Description: The package implements a set of S4 classes (DNAMultipleAlignment,
-	RNAMultipleAlignment, AAMultipleAlignment) for representing multiple
-	sequence alignments.
+	RNAMultipleAlignment, AAMultipleAlignment) for representing Multiple
+	Sequence Alignments (MSA). The classes allow users to represent groups
+	of aligned DNA, RNA or amino acid sequences as a single object.
+	The package also provides functions to read/write such object from/to
+	traditional MSA file formats including Stockholm and Clustal.
 biocViews: Alignment, MultipleSequenceAlignment, Genetics, DataImport, DataRepresentation, Infrastructure
 URL: https://bioconductor.org/packages/MultipleAlignment
 BugReports: https://github.com/Bioconductor/MultipleAlignment/issues
-Version: 0.99.1
+Version: 0.99.2
 License: Artistic-2.0
 Encoding: UTF-8
 Authors@R: c(

@@ -37,15 +37,16 @@
     }
     \item{\code{consensusString(x, ...)}:}{
       Creates a consensus string for \code{x} with the symbol \code{"#"}
-      representing a masked column. See \code{\link{consensusString}}
-      for details on the arguments.
+      representing a masked column.
+      See \code{\link[Biostrings]{consensusString}} in the \pkg{Biostrings}
+      package for details on the arguments.
     }
     \item{\code{consensusViews(x, ...)}:}{
       Similar to the \code{consensusString} method. It returns a 
-      \link{XStringViews} on the consensus string containing subsequence
-      contigs of non-masked columns. Unlike the \code{consensusString}
-      method, the masked columns in the underlying string contain a
-      consensus value rather than the \code{"#"} symbol.
+      \link[Biostrings]{XStringViews} on the consensus string containing
+      subsequence contigs of non-masked columns. Unlike the
+      \code{consensusString} method, the masked columns in the underlying
+      string contain a consensus value rather than the \code{"#"} symbol.
     }
     \item{\code{alphabetFrequency(x, as.prob, collapse)}:}{
       Creates an integer matrix containing the row frequencies of
