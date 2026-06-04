@@ -9,7 +9,7 @@ Description: The package implements a set of S4 classes (DNAMultipleAlignment,
 biocViews: Alignment, MultipleSequenceAlignment, Genetics, DataImport, DataRepresentation, Infrastructure
 URL: https://bioconductor.org/packages/MultipleAlignment
 BugReports: https://github.com/Bioconductor/MultipleAlignment/issues
-Version: 0.99.2
+Version: 0.99.3
 License: Artistic-2.0
 Encoding: UTF-8
 Authors@R: c(
