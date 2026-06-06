@@ -71,6 +71,38 @@ setValidity("MultipleAlignment",
 
 
 ### - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+### updateObject()
+###
+### The *MultipleAlignment class definitions were moved from Biostrings to
+### the MultipleAlignment package in BioC 3.24.
+
+update_MultipleAlignment_object <- function(object, ..., verbose=FALSE)
+{
+    object_class <- class(object)
+    class_package_attr <- attr(object_class, "package")
+    if (class_package_attr != "MultipleAlignment") {
+        if (verbose)
+            message("[updateObject] class package attribute ",
+                    "on ", object_class, " object ",
+                    "is \"", class_package_attr, "\".\n",
+                    "[updateObject] Setting it to \"MultipleAlignment\" ... ",
+                    appendLF=FALSE)
+        class(object) <- class(get(object_class, mode="function")())
+        if (verbose)
+            message("OK")
+    }
+    callNextMethod()
+}
+
+setMethod("updateObject", "DNAMultipleAlignment",
+          update_MultipleAlignment_object)
+setMethod("updateObject", "RNAMultipleAlignment",
+          update_MultipleAlignment_object)
+setMethod("updateObject", "AAMultipleAlignment",
+          update_MultipleAlignment_object)
+
+
+### - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ### Accessor-like methods.
 ###
 

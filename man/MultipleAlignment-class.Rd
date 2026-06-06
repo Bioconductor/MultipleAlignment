@@ -15,6 +15,11 @@
 \alias{AAMultipleAlignment-class}
 \alias{AAMultipleAlignment}
 
+% updateObject:
+\alias{updateObject,DNAMultipleAlignment-method}
+\alias{updateObject,RNAMultipleAlignment-method}
+\alias{updateObject,AAMultipleAlignment-method}
+
 % Accessor-like methods:
 \alias{unmasked,MultipleAlignment-method}
 \alias{rownames,MultipleAlignment-method}
