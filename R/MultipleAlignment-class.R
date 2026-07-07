@@ -311,20 +311,19 @@ AAMultipleAlignment <- function(x=character(),
 ### Show detailed pager view of unmasked sequences.
 ###
 
-detail <- function(x, ...) show(x)
-setGeneric("detail")
 setMethod("detail", "MultipleAlignment",
-            function(x,invertColMask=FALSE,hideMaskedCols=TRUE){
-                ## We don't want a permanent file for this
-                FH <- tempfile(pattern = "tmpFile", tmpdir = tempdir())
-                ## Then write out a temp file with the correct stuff in it
-                write.MultAlign(x, FH, invertColMask=invertColMask,
-                                showRowNames=TRUE,
-                                hideMaskedCols=hideMaskedCols)
-                ## use file.show() to display
-                file.show(FH)
-            })
-
+    function(object, invertColMask=FALSE, hideMaskedCols=TRUE, ...)
+    {
+        ## We don't want a permanent file for this
+        FH <- tempfile(pattern = "tmpFile", tmpdir = tempdir())
+        ## Then write out a temp file with the correct stuff in it
+        write.MultAlign(object, FH, invertColMask=invertColMask,
+                        showRowNames=TRUE,
+                        hideMaskedCols=hideMaskedCols)
+        ## use file.show() to display
+        file.show(FH)
+    }
+)
 
 ## TODO: explore if we can make a textConnection() to save time writing to disk.
 ## page() allows this, but seems to be actually slower than what we do here,

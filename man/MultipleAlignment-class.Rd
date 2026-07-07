@@ -63,6 +63,7 @@
 
 % show style methods:
 \alias{show,MultipleAlignment-method}
+\alias{detail}
 \alias{detail,MultipleAlignment-method}
 
 
@@ -242,8 +243,8 @@ AAMultipleAlignment(x=character(), start=NA, end=NA, width=NA,
   }
   \subsection{The \code{detail()} method}{
     In addition to a \code{show()} method, a \code{detail()} method is
-    provided (\code{detail()} is a new generic function defined in this
-    package, see \code{?\link{detail}}).
+    provided (\code{detail()} is generic function defined in the
+    \pkg{BiocGenerics} package, see \code{?\link[BiocGenerics]{detail}}).
 
     \code{detail(x, invertColMask, hideMaskedCols)}: Allows for a full
     pager driven display of the object so that masked cols and rows

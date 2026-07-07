@@ -30,7 +30,7 @@ exportMethods(
     as.character, as.matrix,
 
     ## Methods for generics defined in the methods package:
-    coerce, show,
+    coerce, show, detail,
 
     ## Methods for generics defined in the BiocGenerics package:
     updateObject,
@@ -73,7 +73,6 @@ export(
     colmask, "colmask<-",
     maskGaps,
     maskednrow, maskedncol, maskeddim,
-    detail,
 
     ## MultipleAlignment-utils.R:
     consensusViews
@@ -85,7 +84,6 @@ exportMethods(
     colmask, "colmask<-",
     maskGaps,
     maskednrow, maskedncol, maskeddim,
-    detail,
     consensusViews
 )
 
